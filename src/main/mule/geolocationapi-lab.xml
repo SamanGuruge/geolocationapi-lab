@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<flow name="geolocationapi-labFlow" doc:id="07cd61f9-195d-4eae-9e10-d6caa325ef06" >
+		<http:listener doc:name="Listener" doc:id="d38e3925-b327-4eec-943f-8cebed66c8bc" config-ref="HTTP_Listener_config" path="/hellomule"/>
+		<http:request method="GET" doc:name="Request" doc:id="fe6eba2f-360d-45ed-b045-ffc79573bdfe" config-ref="HTTP_Request_configuration" path='#["/"++ splitBy(attributes.remoteAddress,":")[0]]'/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="12405e0d-a97a-4f85-8877-094ce11cac85" />
+	</flow>
+	
+</mule>
