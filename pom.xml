@@ -44,8 +44,7 @@
 					<properties>
 					<http.port>8082</http.port>
 					</properties>
-					</cloudHubDeployment>		
-
+					</cloudHubDeployment>	
 					<classifier>mule-application</classifier>				
 				</configuration>
 			</plugin>
